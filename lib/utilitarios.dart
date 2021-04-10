@@ -5,7 +5,7 @@ botaoGenerico(texto, BuildContext context, rota){
   return ElevatedButton(
       style: ElevatedButton.styleFrom(
         minimumSize: Size(200, 20),
-        primary: Colors.purple,
+        primary: Colors.blue[900],
         padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
         textStyle: TextStyle(
             fontSize: 18,
