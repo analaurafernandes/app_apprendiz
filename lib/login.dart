@@ -24,19 +24,46 @@ class _TelaLogin extends State<TelaLogin> {
                         fit: BoxFit.cover))
             ),
             new Center(
-                child: Column(
+                child: Container(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.fromLTRB(0,10,0,10),
-                        child: TextField(
-
-                        ),
+                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
+                          child: ListTile(
+                            leading: IconButton(
+                                icon:  Icon(Icons.person),
+                                onPressed: (){},
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                              ),
+                            title: Text('Login:'),
+                          )
                       ),
-                      botaoGenerico("Cadastrar", context, TelaLogin())
+                      Padding(
+                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
+                          child: ListTile(
+                            title: TextField(),
+                          )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
+                          child: ListTile(
+                            leading: Icon(Icons.lock),
+                            title: Text('Senha:'),
+                          )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
+                          child: ListTile(
+                            title: TextField(),
+                          )
+                      ),
+                      botaoGenerico("Entrar", context, TelaLogin())
                     ]
                 )
+              )
             ),
             Column(
               children: <Widget>[
