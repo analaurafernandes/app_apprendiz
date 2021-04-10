@@ -23,17 +23,42 @@ class _SegundaTelaState extends State<SegundaTela> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Image slider demo')),
-      body: Container(
-          child: CarouselSlider(
-            options: CarouselOptions(),
-            items: imgList.map((item) => Container(
-              child: Center(
-                  child: Image.asset(item, fit: BoxFit.cover, width: 1000)
-              ),
-            )).toList(),
-          )
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.white),
+        actions: <Widget>[
+          PopupMenuButton(itemBuilder: (BuildContext context){
+            return[
+              PopupMenuItem(child: Text('Flutter')),
+              PopupMenuItem(child: Text('Android')),
+            ];
+          })
+        ],
       ),
+      body: new Stack(
+          children: <Widget>[
+          new Container(
+          decoration: new BoxDecoration(
+          image: new DecorationImage(
+          image: AssetImage('./images/background_default.png'),
+            fit: BoxFit.cover))
+        ),
+        new Center(
+          child: Container(
+                child: CarouselSlider(
+                  options: CarouselOptions(),
+                  items: imgList.map((item) => Container(
+                    child: Center(
+                        child: Image.asset(item, fit: BoxFit.cover, width: 1000)
+                    ),
+                  )).toList(),
+                )
+            ),
+          )
+        ]
+      )
     );
   }
 }
