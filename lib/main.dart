@@ -1,4 +1,5 @@
 import 'package:app_educativo/login.dart';
+import 'package:app_educativo/segunda_tela.dart';
 import 'package:flutter/material.dart';
 import 'utilitarios.dart';
 import 'login.dart';
@@ -15,6 +16,11 @@ class _MyAppState extends State<MyApp>{
   Widget build(BuildContext context){
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        initialRoute: "/",
+        routes: {
+          "/login": (context) => TelaLogin(),
+          "/segunda_tela": (context) => SegundaTela()
+        },
         //theme: ThemeData(primaryColor: Colors.deepPurple[200]),
         home: HomePage()
     );
@@ -56,9 +62,9 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.fromLTRB(0,10,0,10),
-                        child: botaoGenerico("Entrar", context, TelaLogin()),
+                        child: botaoGenerico("Entrar", context, "/login"),
                       ),
-                      botaoGenerico("Cadastrar", context, TelaLogin())
+                      botaoGenerico("Cadastrar", context, "/login")
                     ]
                   )
                 )

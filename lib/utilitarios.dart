@@ -1,8 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'login.dart';
-import 'main.dart';
-import 'segunda_tela.dart';
 
 botaoGenerico(texto, BuildContext context, rota){
   return ElevatedButton(
@@ -15,11 +12,7 @@ botaoGenerico(texto, BuildContext context, rota){
            )),
       child: Text(texto),
       onPressed: (){
-        Navigator.push(context,
-          MaterialPageRoute(
-            builder: (context) => TelaLogin()
-          )
-        );
+        Navigator.pushNamed(context, rota);
       }
   );
 }

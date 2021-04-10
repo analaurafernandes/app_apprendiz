@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'segunda_tela.dart';
 import 'utilitarios.dart';
 
 class TelaLogin extends StatefulWidget {
@@ -11,11 +10,21 @@ class _TelaLogin extends State<TelaLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Primeira Tela"),
-        backgroundColor: Colors.blueAccent,
-      ),
-      body: new Stack(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.white),
+          actions: <Widget>[
+            PopupMenuButton(itemBuilder: (BuildContext context){
+              return[
+                PopupMenuItem(child: Text('Flutter')),
+                PopupMenuItem(child: Text('Android')),
+              ];
+            })
+          ],
+        ),
+        body: new Stack(
           children: <Widget>[
             new Container(
                 decoration: new BoxDecoration(
@@ -24,61 +33,36 @@ class _TelaLogin extends State<TelaLogin> {
                         fit: BoxFit.cover))
             ),
             new Center(
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
-                          child: ListTile(
-                            leading: IconButton(
-                                icon:  Icon(Icons.person),
-                                onPressed: (){},
-                                padding: EdgeInsets.zero,
-                                constraints: BoxConstraints(),
-                              ),
-                            title: Text('Login:'),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                          TextFormField(
+                            decoration: InputDecoration(
+                                icon: Icon(Icons.person),
+                                border: UnderlineInputBorder(),
+                                labelText: 'Enter your username'
+                            ),
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                                icon: Icon(Icons.lock),
+                                border: UnderlineInputBorder(),
+                                labelText: 'Enter your password'
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                            child: botaoGenerico("Entrar", context, "/segunda_tela")
                           )
-                      ),
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
-                          child: ListTile(
-                            title: TextField(),
-                          )
-                      ),
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
-                          child: ListTile(
-                            leading: Icon(Icons.lock),
-                            title: Text('Senha:'),
-                          )
-                      ),
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(128, 0, 128, 0),
-                          child: ListTile(
-                            title: TextField(),
-                          )
-                      ),
-                      botaoGenerico("Entrar", context, TelaLogin())
-                    ]
+
+                      ]
+                  )
                 )
               )
-            ),
-            Column(
-              children: <Widget>[
-                ElevatedButton(
-                    child: Text("Ir para a segunda tela"),
-                    onPressed: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SegundaTela()
-                        ),
-                      );
-                    }
-                ),
-              ],
             )
           ]
       )
