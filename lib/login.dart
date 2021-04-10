@@ -29,7 +29,7 @@ class _TelaLogin extends State<TelaLogin> {
             new Container(
                 decoration: new BoxDecoration(
                     image: new DecorationImage(
-                        image: AssetImage('./images/background_default.png'),
+                        image: AssetImage('./images/background_tela_login.png'),
                         fit: BoxFit.cover))
             ),
             new Center(
@@ -41,18 +41,45 @@ class _TelaLogin extends State<TelaLogin> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                           TextFormField(
+                            cursorColor: Colors.white,
+                            style: TextStyle(color: Colors.blue[900], decorationColor: Colors.white),
                             decoration: InputDecoration(
-                                icon: Icon(Icons.person),
-                                border: UnderlineInputBorder(),
-                                labelText: 'Enter your username'
+                                prefixIcon: Icon(Icons.person, color: Colors.blue[900], size: 22),
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.blue[900]
+                                    )
+                                ),
+                                labelText: 'Usuário:',
+                                labelStyle: TextStyle(color: Colors.white, fontSize: 14),
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white
+                                    )
+                                )
                             ),
                           ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                icon: Icon(Icons.lock),
-                                border: UnderlineInputBorder(),
-                                labelText: 'Enter your password'
-                            ),
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                              child: TextFormField(
+                                cursorColor: Colors.white,
+                                decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.lock, color: Colors.blue[900], size: 22),
+                                    focusColor: Colors.white,
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.blue[900]
+                                        )
+                                    ),
+                                    labelText: 'Senha:',
+                                    labelStyle: TextStyle(color: Colors.white, fontSize: 14),
+                                    focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.white
+                                        )
+                                    )
+                                ),
+                              ),
                           ),
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 30, 0, 0),

@@ -31,8 +31,8 @@ class _SegundaTelaState extends State<SegundaTela> {
         actions: <Widget>[
           PopupMenuButton(itemBuilder: (BuildContext context){
             return[
-              PopupMenuItem(child: Text('Flutter')),
-              PopupMenuItem(child: Text('Android')),
+              PopupMenuItem(child: Text('Aprender as Letras')),
+              PopupMenuItem(child: Text('Aprender os Números')),
             ];
           })
         ],
@@ -42,7 +42,7 @@ class _SegundaTelaState extends State<SegundaTela> {
           new Container(
           decoration: new BoxDecoration(
           image: new DecorationImage(
-          image: AssetImage('./images/background_default.png'),
+          image: AssetImage('./images/background_tela_letras.png'),
             fit: BoxFit.cover))
         ),
         new Center(
@@ -51,7 +51,7 @@ class _SegundaTelaState extends State<SegundaTela> {
                   options: CarouselOptions(),
                   items: imgList.map((item) => Container(
                     child: Center(
-                        child: Image.asset(item, fit: BoxFit.cover, width: 1000)
+                        child: Image.asset(item, fit: BoxFit.fill, width: 500)
                     ),
                   )).toList(),
                 )
