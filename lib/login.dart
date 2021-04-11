@@ -83,7 +83,7 @@ class _TelaLogin extends State<TelaLogin> {
                           ),
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                            child: botaoGenerico("Entrar", context, "/segunda_tela")
+                            child: botaoGenerico("Entrar", context, "/tela_alfabeto")
                           )
 
                       ]

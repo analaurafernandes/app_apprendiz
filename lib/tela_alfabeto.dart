@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'utilitarios.dart';
+import 'package:app_educativo/utilitarios.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_options.dart';
+import 'package:app_educativo/tela_numeros.dart';
 
 final List<String> imgList = [
 './images/letraA.JPG','./images/letraB.JPG','./images/letraC.JPG', './images/letraD.JPG',
@@ -14,12 +15,12 @@ final List<String> imgList = [
   './images/letraY.JPG', './images/letraZ.JPG'
 ];
 
-class SegundaTela extends StatefulWidget {
+class TelaAlfabeto extends StatefulWidget {
   @override
-  _SegundaTelaState createState() => _SegundaTelaState();
+  _TelaAlfabetoState createState() => _TelaAlfabetoState();
 }
 
-class _SegundaTelaState extends State<SegundaTela> {
+class _TelaAlfabetoState extends State<TelaAlfabeto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +32,24 @@ class _SegundaTelaState extends State<SegundaTela> {
         actions: <Widget>[
           PopupMenuButton(itemBuilder: (BuildContext context){
             return[
-              PopupMenuItem(child: Text('Aprender as Letras')),
-              PopupMenuItem(child: Text('Aprender os Números')),
+              PopupMenuItem(child: Text('Aprender as Letras'), value: 0),
+              PopupMenuItem(child: Text('Aprender os Números'), value: 1),
             ];
+          },
+          onSelected: (result) {
+            if (result == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TelaAlfabeto()),
+              );
+            }
+            else if(result == 1){
+              print("entrei");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TelaNumeros())
+              );
+            }
           })
         ],
       ),

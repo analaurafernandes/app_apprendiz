@@ -1,5 +1,6 @@
 import 'package:app_educativo/login.dart';
-import 'package:app_educativo/segunda_tela.dart';
+import 'package:app_educativo/tela_alfabeto.dart';
+import 'package:app_educativo/tela_numeros.dart';
 import 'package:flutter/material.dart';
 import 'utilitarios.dart';
 import 'login.dart';
@@ -19,7 +20,8 @@ class _MyAppState extends State<MyApp>{
         initialRoute: "/",
         routes: {
           "/login": (context) => TelaLogin(),
-          "/segunda_tela": (context) => SegundaTela()
+          "/tela_alfabeto": (context) => TelaAlfabeto(),
+          "/tela_numeros": (context) => TelaNumeros()
         },
         //theme: ThemeData(primaryColor: Colors.deepPurple[200]),
         home: HomePage()

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 botaoGenerico(texto, BuildContext context, rota){
